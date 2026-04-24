@@ -1,83 +1,66 @@
 /* ============================================
    MAY SHIRAH — Portfolio JS
    ============================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Nav scroll
+  /* ---- Nav scroll ---- */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav--scrolled', window.pageYOffset > 50);
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  // Mobile toggle
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    links.classList.toggle('active');
-    document.body.style.overflow = links.classList.contains('active') ? 'hidden' : '';
+  /* ---- Mobile menu ---- */
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('navMenu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    toggle.classList.remove('active');
-    links.classList.remove('active');
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    btn.classList.remove('active');
+    menu.classList.remove('open');
     document.body.style.overflow = '';
   }));
 
-  // Smooth scroll with offset
+  /* ---- Smooth scroll ---- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' });
-      }
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) window.scrollTo({ top: t.offsetTop - 60, behavior: 'smooth' });
     });
   });
 
-  // Scroll-triggered reveals with stagger
+  /* ---- Reveal on scroll ---- */
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Stagger siblings
-        const parent = entry.target.parentElement;
-        const siblings = Array.from(parent.querySelectorAll('.reveal'));
-        const idx = siblings.indexOf(entry.target);
-        entry.target.style.transitionDelay = `${Math.min(idx * 70, 350)}ms`;
+        const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+        const idx = Array.from(siblings).indexOf(entry.target);
+        entry.target.style.transitionDelay = Math.min(idx * 60, 300) + 'ms';
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  // Counter animation for hero metrics
-  const metrics = document.querySelectorAll('.hero__metric-num');
-  let counted = false;
-  const metricsObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !counted) {
-        counted = true;
-        metrics.forEach(el => {
-          const text = el.textContent;
-          const match = text.match(/([\d.]+)/);
-          if (!match) return;
-          const target = parseFloat(match[0]);
-          const isFloat = text.includes('.');
-          const suffix = text.replace(match[0], '');
-          const duration = 1200;
-          const start = performance.now();
-          (function tick(now) {
-            const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            const val = isFloat ? (target * eased).toFixed(1) : Math.round(target * eased);
-            el.textContent = val + suffix;
-            if (p < 1) requestAnimationFrame(tick);
-          })(start);
-        });
+  /* ---- Image fallback handling ---- */
+  document.querySelectorAll('.work-card-img img, .concept-img img, .hero-img-wrap img').forEach(img => {
+    img.addEventListener('error', function () {
+      this.style.display = 'none';
+      const fallback = this.parentElement.querySelector('.work-card-img-fallback, .concept-fallback');
+      if (fallback) {
+        fallback.style.display = 'flex';
       }
     });
-  }, { threshold: 0.5 });
-  metrics.forEach(m => metricsObs.observe(m));
+    // Also handle already-broken images (cached)
+    if (img.complete && img.naturalWidth === 0) {
+      img.style.display = 'none';
+      const fallback = img.parentElement.querySelector('.work-card-img-fallback, .concept-fallback');
+      if (fallback) fallback.style.display = 'flex';
+    }
+  });
 });
