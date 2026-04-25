@@ -564,3 +564,56 @@ strong { font-weight: 600; }
 
 /* ========== SELECTION ========== */
 ::selection { background: var(--rose); color: var(--ivory); }
+
+
+
+/* FORCE HERO IMAGE TO BE SMALL LANDSCAPE ON ALL DEVICES */
+.hero-img-wrap {
+  width: min(420px, 32vw) !important;
+  height: 260px !important;
+  aspect-ratio: auto !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+
+.hero-img-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 24% !important;
+  display: block !important;
+}
+
+.hero-visual {
+  order: 0 !important;
+  max-width: none !important;
+}
+
+/* iPhone fix */
+@media (max-width: 768px) {
+  .hero-visual {
+    order: 0 !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 24px !important;
+  }
+
+  .hero-img-wrap {
+    width: 86vw !important;
+    max-width: 360px !important;
+    height: 220px !important;
+    aspect-ratio: auto !important;
+    border-radius: 24px !important;
+  }
+
+  .hero-img-wrap img {
+    object-fit: cover !important;
+    object-position: center 24% !important;
+  }
+
+  .hero-float {
+    right: 12px !important;
+    bottom: -24px !important;
+    left: auto !important;
+  }
+}
