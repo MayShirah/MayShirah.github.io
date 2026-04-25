@@ -95,37 +95,180 @@ strong { font-weight: 600; }
 
 /* ========== HERO ========== */
 .hero {
-  min-height: 100svh; padding: clamp(100px, 14vh, 140px) 0 60px;
-  display: flex; flex-direction: column; justify-content: center;
-  background: linear-gradient(165deg, var(--ivory) 0%, var(--ivory-warm) 50%, var(--champagne) 100%);
-  position: relative; overflow: hidden;
+  min-height: 100svh;
+  padding: clamp(100px, 14vh, 140px) 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(165deg, var(--ivory) 0%, var(--ivory-warm) 52%, var(--champagne) 100%);
+  position: relative;
+  overflow: hidden;
 }
+
 .hero::before {
-  content: ''; position: absolute; top: -100px; right: -200px;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,165,160,0.12) 0%, transparent 70%);
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -180px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,165,160,0.14) 0%, transparent 70%);
 }
+
 .hero-inner {
-  max-width: var(--max-w); margin: 0 auto;
+  max-width: var(--max-w);
+  margin: 0 auto;
   padding: 0 clamp(20px, 5vw, 40px);
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(36px, 6vw, 76px);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
+
 .hero-eyebrow {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--rose-muted); margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose-muted);
+  margin-bottom: 16px;
 }
+
 .hero-name {
-  font-family: var(--ff-display); font-size: clamp(52px, 9vw, 88px);
-  font-weight: 400; color: var(--espresso); line-height: 0.95;
-  margin-bottom: 20px;
+  font-family: var(--ff-display);
+  font-size: clamp(56px, 8vw, 92px);
+  font-weight: 400;
+  color: var(--espresso);
+  line-height: 0.92;
+  margin-bottom: 22px;
 }
-.hero-name em { font-style: italic; font-weight: 300; color: var(--rose-muted); }
+
+.hero-name em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--rose-muted);
+}
+
 .hero-sub {
-  font-size: clamp(15px, 1.6vw, 18px); font-weight: 300;
-  color: var(--text-light); line-height: 1.6; margin-bottom: 32px;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 34px;
 }
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-wrap {
+  width: min(430px, 33vw);
+  height: 620px;
+  border-radius: 38px;
+  overflow: hidden;
+  background: var(--ivory-warm);
+  box-shadow: 0 34px 90px rgba(59, 47, 47, 0.16);
+}
+
+.hero-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero-float {
+  position: absolute;
+  left: 6%;
+  bottom: 36px;
+  z-index: 3;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+  }
+
+  .hero-img-wrap {
+    width: 380px;
+    height: 560px;
+  }
+}
+
+/* iPhone / Mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 110px 0 50px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    text-align: center;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-name {
+    font-size: clamp(64px, 18vw, 92px);
+  }
+
+  .hero-sub {
+    max-width: 340px;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-img-wrap {
+    width: min(86vw, 360px);
+    height: 500px;
+    border-radius: 30px;
+  }
+
+  .hero-float {
+    left: 18px;
+    bottom: 18px;
+  }
+}
+
+/* Small iPhone */
+@media (max-width: 390px) {
+  .hero-img-wrap {
+    width: 88vw;
+    height: 455px;
+  }
+
+  .hero-name {
+    font-size: 70px;
+  }
+
+  .hero-ctas .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 .cta {
   display: inline-flex; align-items: center; justify-content: center;
