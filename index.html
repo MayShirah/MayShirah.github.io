@@ -6,157 +6,294 @@
 
 <title>May Shirah — Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces&family=Manrope&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Manrope', sans-serif;
+  background: #F5EFE8;
+  color: #3B2F2F;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== SECTION ===== */
+section {
+  padding: 80px 0;
+}
+
+/* ===== TITLES ===== */
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* ===== PRODUCT GRID ===== */
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ===== CARD ===== */
+.work-card {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  background: #EDE4D8;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.work-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT */
+.work-card-body {
+  padding: 40px;
+}
+
+.work-card-cat {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #A88C7D;
+}
+
+.work-card-body h3 {
+  font-family: 'Fraunces';
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.work-card-body p {
+  line-height: 1.7;
+  color: #6B5C50;
+}
+
+.work-card-role {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 13px;
+  border: 1px solid #CBB9A8;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* ===== EXPERIENCE ===== */
+.exp {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.exp-item h3 {
+  font-family: 'Fraunces';
+  font-size: 24px;
+}
+
+.exp-item span {
+  display: block;
+  margin: 5px 0 10px;
+  color: #8B7A6B;
+}
+
+.exp-item p {
+  line-height: 1.7;
+}
+
+.tags {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #8B7A6B;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .work-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- ================= NAV ================= -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="logo">MS</a>
-    <div class="nav-menu">
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<header class="hero">
-  <h1>May Shirah</h1>
-  <p>Beauty concepts, developed into market-ready products.</p>
-</header>
-
 <!-- ================= PRODUCT PORTFOLIO ================= -->
-<section id="work" class="work">
-  <h2>Product Portfolio</h2>
+<section id="work">
+  <div class="container">
+    <h2>Product Portfolio</h2>
 
-  <div class="work-grid">
+    <div class="work-grid">
 
-    <!-- Reef -->
-    <div class="work-card">
-      <a href="https://reefperfumes.com/en/Reef-Beauty/c1900934299" target="_blank">
-        <img src="assets/reef-beauty.jpeg">
-      </a>
-      <h3>Reef Beauty</h3>
-      <p>Luxury beauty line inspired by florals, softness, and refined femininity.</p>
+      <!-- Reef -->
+      <div class="work-card">
+        <a href="https://reefperfumes.com/en/Reef-Beauty/c1900934299" target="_blank" class="work-card-img">
+          <img src="assets/reef-beauty.jpeg">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">BEAUTY · REEF</span>
+          <h3>Reef Beauty</h3>
+          <p>A beauty line created as an extension of Reef’s world, translating nature into a refined, feminine product experience. Inspired by florals, light, and softness, the brand blends luxury with simplicity.</p>
+          <span class="work-card-role">Category & Product Manager</span>
+        </div>
+      </div>
+
+      <!-- Ten Seconds -->
+      <div class="work-card">
+        <a href="https://niceonesa.com/ar/search?q=ten+seconds" target="_blank" class="work-card-img">
+          <img src="assets/ten-seconds.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">SKINCARE · TEN SECONDS</span>
+          <h3>Ten Seconds</h3>
+          <p>Skincare designed for real life — fast, simple, and effective. Inspired by Korean beauty trends and everyday routines.</p>
+          <span class="work-card-role">Category & Product Manager</span>
+        </div>
+      </div>
+
+      <!-- One Pose -->
+      <div class="work-card">
+        <a href="https://niceonesa.com/en/search?q=one+pose" target="_blank" class="work-card-img">
+          <img src="assets/nice-one.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">MAKEUP · ONE POSE</span>
+          <h3>One Pose</h3>
+          <p>Clean, effortless makeup designed for everyday confidence and photo-ready simplicity.</p>
+          <span class="work-card-role">Category & Product Manager</span>
+        </div>
+      </div>
+
+      <!-- Prisca -->
+      <div class="work-card">
+        <a href="https://niceonesa.com/ar/search?q=prisca" target="_blank" class="work-card-img">
+          <img src="assets/prisca.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">BEAUTY · PRISCA</span>
+          <h3>Prisca</h3>
+          <p>Inspired by Moroccan beauty rituals, blending tradition, natural ingredients, and modern product experience.</p>
+          <span class="work-card-role">Category & Product Manager</span>
+        </div>
+      </div>
+
+      <!-- Aroub -->
+      <div class="work-card">
+        <a href="https://niceonesa.com/ar/aroub" target="_blank" class="work-card-img">
+          <img src="assets/aroub.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">FRAGRANCE · AROUB</span>
+          <h3>Aroub</h3>
+          <p>A Saudi fragrance concept translating traditional scent rituals into a modern identity.</p>
+          <span class="work-card-role">Category & Product Manager</span>
+        </div>
+      </div>
+
+      <!-- Roxa -->
+      <div class="work-card">
+        <a href="https://roxashop.com/categories/1385293/أجهزة-العناية-بالبشرة" target="_blank" class="work-card-img">
+          <img src="assets/roxa-device.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">BEAUTY DEVICE · ROXA</span>
+          <h3>Roxa</h3>
+          <p>A compact device designed for gentle facial hair removal, combining efficiency with everyday ease.</p>
+          <span class="work-card-role">Product Development</span>
+        </div>
+      </div>
+
+      <!-- Gentl -->
+      <div class="work-card">
+        <a href="https://roxashop.com/categories/1412120/كريمات-العناية-بالبشرة" target="_blank" class="work-card-img">
+          <img src="assets/roxa-skincare.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">SKINCARE · GENTL</span>
+          <h3>GENTL</h3>
+          <p>Post-laser skincare designed to calm, repair, and restore sensitive skin.</p>
+          <span class="work-card-role">Product Development</span>
+        </div>
+      </div>
+
+      <!-- 4U2 -->
+      <div class="work-card">
+        <a href="https://niceonesa.com/en/4u2" target="_blank" class="work-card-img">
+          <img src="assets/4u2.png">
+        </a>
+        <div class="work-card-body">
+          <span class="work-card-cat">FRAGRANCE · 4U2</span>
+          <h3>4U2</h3>
+          <p>A dual fragrance concept designed around connection and complementary scent pairing.</p>
+          <span class="work-card-role">Fragrance Concept</span>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Ten Seconds -->
-    <div class="work-card">
-      <a href="https://niceonesa.com/ar/search?q=ten+seconds" target="_blank">
-        <img src="assets/ten-seconds.png">
-      </a>
-      <h3>Ten Seconds</h3>
-      <p>Fast, simple skincare inspired by Korean routines and everyday use.</p>
-    </div>
-
-    <!-- One Pose -->
-    <div class="work-card">
-      <a href="https://niceonesa.com/en/search?q=one+pose" target="_blank">
-        <img src="assets/nice-one.png">
-      </a>
-      <h3>One Pose</h3>
-      <p>Clean, effortless makeup for everyday confidence.</p>
-    </div>
-
-    <!-- Prisca -->
-    <div class="work-card">
-      <a href="https://niceonesa.com/ar/search?q=prisca" target="_blank">
-        <img src="assets/prisca.png">
-      </a>
-      <h3>Prisca</h3>
-      <p>Moroccan-inspired natural beauty rituals with a modern twist.</p>
-    </div>
-
-    <!-- Aroub -->
-    <div class="work-card">
-      <a href="https://niceonesa.com/ar/aroub" target="_blank">
-        <img src="assets/aroub.png">
-      </a>
-      <h3>Aroub</h3>
-      <p>Saudi fragrance rooted in heritage and identity.</p>
-    </div>
-
-    <!-- Roxa -->
-    <div class="work-card">
-      <a href="https://roxashop.com/categories/1385293/أجهزة-العناية-بالبشرة" target="_blank">
-        <img src="assets/roxa-device.png">
-      </a>
-      <h3>Roxa</h3>
-      <p>Compact beauty device designed for ease and performance.</p>
-    </div>
-
-    <!-- Gentl -->
-    <div class="work-card">
-      <a href="https://roxashop.com/categories/1412120/كريمات-العناية-بالبشرة" target="_blank">
-        <img src="assets/roxa-skincare.png">
-      </a>
-      <h3>GENTL</h3>
-      <p>Post-laser skincare focused on repair and recovery.</p>
-    </div>
-
-    <!-- 4U2 -->
-    <div class="work-card">
-      <a href="https://niceonesa.com/en/4u2" target="_blank">
-        <img src="assets/4u2.png">
-      </a>
-      <h3>4U2</h3>
-      <p>Dual fragrance concept built around connection.</p>
-    </div>
-
   </div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="experience">
-  <h2>Experience</h2>
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
 
-  <div class="exp">
+    <div class="exp">
 
-    <div class="exp-item">
-      <h3>REEF — Category & Product Manager (Makeup)</h3>
-      <span>Aug 2025 – Present</span>
-      <p>Built Reef Beauty from the ground up, translating brand identity into a scalable cosmetics line. Owned 17+ SKUs while driving category strategy, supplier ecosystem, and full P&L performance.</p>
-      <div class="tags">17+ SKUs • Full P&L • Brand Creation</div>
+      <div class="exp-item">
+        <h3>REEF — Category & Product Manager (Makeup)</h3>
+        <span>Aug 2025 – Present</span>
+        <p>Built Reef Beauty from the ground up, owning 17+ SKUs and full category strategy.</p>
+        <div class="tags">17+ SKUs • Full P&L • Brand Creation</div>
+      </div>
+
+      <div class="exp-item">
+        <h3>ROXA — Product Development Manager</h3>
+        <span>Sep 2024 – Aug 2025</span>
+        <p>Led end-to-end product development across beauty and skincare.</p>
+      </div>
+
+      <div class="exp-item">
+        <h3>ALHOKAIR — Account Manager</h3>
+        <span>Feb 2024 – Sep 2024</span>
+        <p>Managed 30+ brands and contributed to SAR 2.5M revenue growth.</p>
+        <div class="tags">30+ Brands • SAR 2.5M</div>
+      </div>
+
+      <div class="exp-item">
+        <h3>LAYAL SHIFT — Product Development Manager</h3>
+        <span>Apr 2023 – Feb 2024</span>
+        <p>Led product lifecycle from concept to launch.</p>
+      </div>
+
+      <div class="exp-item">
+        <h3>NICE ONE — Product Development Specialist</h3>
+        <span>Mar 2022 – Mar 2023</span>
+        <p>Launched 20+ products and built 3 brands generating SAR 2M.</p>
+        <div class="tags">20+ Products • SAR 2M • 3 Brands</div>
+      </div>
+
     </div>
-
-    <div class="exp-item">
-      <h3>ROXA — Product Development Manager</h3>
-      <span>Sep 2024 – Aug 2025</span>
-      <p>Led end-to-end product development across beauty and skincare categories, driving supplier negotiations, cost optimization, and regulatory execution.</p>
-    </div>
-
-    <div class="exp-item">
-      <h3>ALHOKAIR — Account Manager</h3>
-      <span>Feb 2024 – Sep 2024</span>
-      <p>Managed a portfolio of 30+ brands, contributing to SAR 2.5M revenue growth through strategic account planning and CRM optimization.</p>
-      <div class="tags">30+ Brands • SAR 2.5M Revenue</div>
-    </div>
-
-    <div class="exp-item">
-      <h3>LAYAL SHIFT — Product Development Manager</h3>
-      <span>Apr 2023 – Feb 2024</span>
-      <p>Led full product lifecycle from concept to launch, improving product quality and development speed.</p>
-    </div>
-
-    <div class="exp-item">
-      <h3>NICE ONE — Product Development Specialist</h3>
-      <span>Mar 2022 – Mar 2023</span>
-      <p>Supported launch of 20+ products and built 3 brands generating SAR 2M revenue.</p>
-      <div class="tags">20+ Products • SAR 2M • 3 Brands</div>
-    </div>
-
   </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: Mayfarid3@gmail.com</p>
 </section>
 
 </body>
