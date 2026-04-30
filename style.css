@@ -668,3 +668,48 @@ strong { font-weight: 600; }
   }
 }
 
+/* FIX PRODUCT PORTFOLIO TEXT VISIBILITY */
+.work-card-body {
+  background: var(--ivory-warm);
+}
+
+.work-card-body h3 {
+  color: var(--espresso) !important;
+  opacity: 1 !important;
+}
+
+.work-card-body p {
+  color: var(--text-mid) !important;
+  opacity: 1 !important;
+}
+
+.work-card-cat {
+  color: var(--rose-muted) !important;
+  opacity: 1 !important;
+}
+
+.work-card-role {
+  color: var(--mauve) !important;
+  opacity: 1 !important;
+}
+
+/* Featured wide card fix */
+.work-card--wide {
+  background: var(--ivory-warm) !important;
+}
+
+.work-card--wide .work-card-body {
+  background: var(--ivory-warm) !important;
+}
+
+.work-card--wide h3 {
+  color: var(--espresso) !important;
+}
+
+.work-card--wide p {
+  color: var(--text-mid) !important;
+}
+
+.work-card--wide .work-card-role {
+  color: var(--mauve) !important;
+}
